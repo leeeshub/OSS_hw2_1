@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form action="form2.html">
+    <!-- method는 쓰지않으면 get 방식이 디폴트값 -->
+    이름: <input type="text" name="username" value="이름을 입력하시오."/> <br>
+    <!-- value는 박스 내에 초기 값이 된다. type name value는 기본값!!! -->
+    암호: <input type="password" name="pwd" /> <br>
+    성별: <input type="radio" name="gender" value="M" />남
+    <input type="radio" name="gender" value="F"/>여<br>
+    색상: <input type="color" name="color" value="#ff0000"/> <br>
+    포트폴리오: <input type="file" name="file1" /> <br>
+    생년월일: <input type="date" name="date1" /> <br>
+    <!-- 전송 버튼이 없으면 서버로 전송이 불가함. -->
+    <input type="submit" value="save" />
+    <input type="reset" value="reset" />
+    <!-- reset 하면 모든 값들이 초기값으로 돌아감 -->
+
+  </form>
+</body>
+</html>
