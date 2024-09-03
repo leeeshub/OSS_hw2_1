@@ -16,29 +16,41 @@
 
   <form action="billing.html">
     <h3>Billing address</h3>
-    First name <input type="text" name="firstname" required><br>
-    Last name <input type="text" name="lastname" required><br>
-    Username <button>@</button>
+
+    <label>First name</label>
+    <input type="text" name="firstname" required><br>
+
+    <label>Last Name</label>
+    <input type="text" name="lastname" required><br>
+
+    <label>Username</label>
+    <button>@</button>
     <input type="text" name="username" placeholder="Username" required><br>
-    Email (Optional) <input type="text" name="email" placeholder="you@example.com"><br>
-    Address <input type="text" name="address1" placeholder="1234 Main St" required><br>
-    Address 2 (Optional) <input type="text" name="address2" placeholder="Apartment or suite"><br>
     
-    Country
+    <label>Email <span>(Optional)</span></label>
+    <input type="text" name="email" placeholder="you@example.com"><br>
+    
+    <label>Address</label> 
+    <input type="text" name="address1" placeholder="1234 Main St" required><br>
+   
+    <label>Address 2<span>(Optional)</span></label>
+    <input type="text" name="address2" placeholder="Apartment or suite"><br>
+    
+    <label>Country</label>
     <select name="country" required>
         <option value="1" selected>Choose...</option>
         <option value="2">United States</option>
     </select>
     <br>
 
-    State
+    <label>State</label>
     <select name="state" required>
         <option value="1" selected>Choose...</option>
         <option value="2">California</option>
     </select>
     <br>
 
-    Zip
+    <label>Zip</label>
     <input type="text" name="zipcode" required>
     <br>
 
@@ -53,15 +65,27 @@
 
     <!-- payment space -->
     <h3>Payment</h3>
-    <input type="radio" name="credit" value="C"/>Credit card<br>
-    <input type="radio" name="debit" value="D"/>Debit card<br>
-    <input type="radio" name="paypal" value="P"/>PayPal<br>
+    <input type="radio" name="credit" value="C"/>
+    <label>Credit card</label>
+    <input type="radio" name="debit" value="D"/>
+    <label>Debit card</label>
+    <input type="radio" name="paypal" value="P"/>
+    <label>PayPal</label>
 
-    Name on card <input type="text" name="cardname" required><br>
+    <br>
+
+    <label>Name on card</label>
+    <input type="text" name="cardname" required><br>
     <small>Full name as displayed on card</small><br>
-    Credit card number <input type="text" name="cardNumber" required><br>
-    Expiration <input type="text" name="exp" required><br>
-    CVV <input type="text" name="cvv" required><br>
+
+    <label>Credit card number</label>
+    <input type="text" name="cardNumber" required><br>
+
+    <label>Expiration</label>
+    <input type="text" name="exp" required><br>
+    
+    <label>CVV</label>
+    <input type="text" name="cvv" required><br>
 
     <hr>
     <input type="submit" value="Continue to checkout" />
