@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    function add() {
+      let num1 = document.getElementById("n1");
+      let num2 = document.getElementById("n2");
+      
+      let sum = parseInt(num1.value) + parseInt(num2.value);
+
+      let result = document.getElementById("result");
+      result.value = sum;
+    }
+  </script>
+</head>
+<body>
+  <h3>덧셈 계산기</h3>
+
+  <div id="calc">
+    <input type="text" size="3" id="n1">
+    +
+    <input type="text" size="3" id="n2">
+    <button>=</button>
+    <input type="text" size="3" id="result">
+  </div>
+
+  <br>
+  <input type="reset" value="초기화">
+
+</body>
+</html>
