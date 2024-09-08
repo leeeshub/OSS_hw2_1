@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <script>
+    function check() {
+      // 제목 있어야됨
+      let f = document.form1;
+      let title = f.title;
+
+      if(title.value == '') {
+        alert('제목을 입력하시오');
+        title.focus(); // 커서를 제목에 넣어줌 근데 왜 안됨.?
+        return false;
+      }
+
+      let name = document.form1.username;
+
+      // 모두 문자열로 인식한다(숫자가 써있을지라도)
+      if(name.value.length < 2) {
+        alert('2글자 이상 입력하시오');
+        name.focus();
+        return false;
+      }
+
+      // 이름 
+    }
+  </script>
+</head>
+<body>
+  <form name="form1" onsubmit="return check()"> 
+    제목: <input type="text" name="title"><br>
+    이름: <input type="text" name="username"><br>
+    내용: <textarea cols="20" rows="5" name="contents"></textarea><br>
+    <!-- <input type="submit" value="저장"> -->
+    <!-- <button onclick="check()" >저장</button> -->
+    <!-- onclick="check()"을 button과 함께 써줄 필요가 없음. 여기서는 form에 묶여있어서 submit이 되어버림 -->
+     <input type="submit" value="저장">
+  </form>
+</body>
+</html>
