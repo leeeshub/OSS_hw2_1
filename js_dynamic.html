@@ -22,6 +22,39 @@
     }
   </style>
     
+  <script>
+    window.onload = function listup() {
+      const submit = document.getElementById('subbutton');
+      const reset = document.getElementById('resbutton');
+      const fruitInput = document.getElementById('fruits');
+      const fruitList = document.createElement('ul');
+
+      document.body.appendChild(fruitList);
+
+      submit.addEventListener('click', function() {
+        if(fruitInput.value.trim() !== "") {
+          // , 기준으로 리스트에 추가
+          const fruitsArray = fruitInput.value.split(',');
+          for (let i=0; i<fruitsArray.length; i++) {
+            fruitsArray[i] = fruitsArray[i].trim();
+          }
+
+          for(let i=0; i<fruitsArray.length; i++){
+            const item = document.createElement('li');
+            item.innerText = fruitsArray[i];
+            fruitList.appendChild(item);
+          }
+        }
+      });
+
+      reset.addEventListener('click', function() {
+        fruitList.innerHTML = "";
+      })
+
+    }
+
+    document.getElementById("subbutton").addEventListener('click', listup);
+  </script>
 </head>
 <body>
   <h1>Dynamic Web page</h1>
