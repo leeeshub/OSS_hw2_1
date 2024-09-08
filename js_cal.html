@@ -7,27 +7,31 @@
 
   <script>
     function add() {
-      let num1 = document.getElementById("n1");
-      let num2 = document.getElementById("n2");
+      let num1 = document.getElementById("n1"); // n1 값을 가져온다
+      // let num1 = document.getElementsByTagName("input").value; 
+      // -> 기본적으로 배열 형태임. input 태그를 가진 애들이 위에서 부터 0번으로 배열 형태로 순번을 갖게됨. 이 상태로는 바로 사용할 수 없고 배열 번호로 접근해야됨.
+      let num2 = document.getElementById("n2"); // n2 값을 가져온다
+      // n1+n2 => r
+      // n3에 값을 표시한다
       
       let sum = parseInt(num1.value) + parseInt(num2.value);
 
-      let result = document.getElementById("result");
-      result.value = sum;
+      let r = document.getElementById("result");
+      r.value = sum;
     }
   </script>
 </head>
 <body>
-  <h3>덧셈 계산기</h3>
-
+  <h3>계산기............</h3>
+<!-- 우리는 submit 할 필요가 없으므로 form을 적을 필요가 없음. form이 있으면 button이 submit 기능이 O. 그러나 없애면 사라짐 그 기능이.-->
   <div id="calc">
     <input type="text" size="3" id="n1">
     +
     <input type="text" size="3" id="n2">
-    <button>=</button>
+    <button onclick="add()">=</button>
     <input type="text" size="3" id="result">
   </div>
-
+  
   <br>
   <input type="reset" value="초기화">
 
