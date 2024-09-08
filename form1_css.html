@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+          
+        font-size: 90%;
+        color: #21252a;
+        background-color: #f8f9fa;
+
+        margin: 5vw 19vw;
+      }
+
+      #header {
+        text-align: center;
+        padding: 5px;
+        margin: 0 8px;
+      }
+
+      h1,
+      h2 {
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 1.2rem;
+        font-weight: 300;
+        line-height: 150%;
+      }
+
+      hr {
+        border: 0.5px solid #c6c4c4;
+        margin: 1rem 0;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0px;
+        border: 1px solid #dfdfdf;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      form {
+        margin-top: 20px;
+        display: flex;
+        gap: 45px;
+      }
+
+      #billing {
+        flex: 2;
+      }
+
+      .billing-space {
+        margin-bottom: 0.5rem;
+      }
+
+      #name {
+        display: flex;
+        gap: 15px;
+      }
+
+      .name-content {
+        flex: 1;
+      }
+
+      .username-content {
+        display: flex;
+        align-items: center;
+      }
+
+      .username-content button {
+        background-color: #eaecef;
+        border-radius: 5px 0 0 5px;
+        border: 1px solid #dfdfdf;
+        border-right: none;
+        padding: 10px;
+      }
+
+      .username-content input {
+        border-radius: 0 5px 5px 0;
+      }
+
+      .optional, .name-card-index {
+        color: #6c757d;
+      }
+
+      #csz-group {
+        display: flex;
+        gap: 15px;
+      }
+
+      .csz-group-content {
+        flex: 2;
+      }
+
+      .csz-group-content:last-child {
+        /* zip 영역의 크기를 조금 작게 만들어야 함. */
+        flex: 1.5;
+      }
+
+      .csz-group-select {
+        width: 100%;
+        border: 1px solid #dfdfdf;
+        border-radius: 5px;
+        padding: 8px 10px;
+        margin-top: 0.5rem;
+      }
+
+      #check-box {
+        align-content: center;
+      }
+
+      #check-box div {
+        margin: 4px 0;
+      }
+
+      input[type="checkbox"] {
+        border: 1px solid #dfdfdf;
+        width: 1em;
+        height: 1em;
+      }
+
+      #payment-group div {
+        margin: 5px 0;
+        align-content: center;
+      }
+
+      input[type="radio"] {
+        border: 1px solid #dfdfdf;
+        margin: 0;
+      }
+
+      #card-top {
+        display: flex;
+        gap: 20px;
+      }
+
+      #card-top div {
+        flex: 1;
+      }
+
+      #card-bottom {
+        display: flex;
+        gap: 20px;
+        width: 48%;
+      }
+
+      #card-bottom div {
+        flex: 1;
+      }
+
+      #card-info input[type="submit"] {
+        width: 100%;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        font-weight: 400;
+        font-size: large;
+      }
+
+      .card-info-margin {
+        margin-bottom: 1rem;
+      }
+
+      /* cart style */
+      #cart {
+        flex: 0.9;
+      }
+
+      #cart-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #007bff;
+        height: 35px;
+        margin-top: 10px;
+      }
+
+      .cart-item-num {
+        background-color: #007bff;
+        color: white;
+        border-radius: 45%;
+        width: 33px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+      }
+
+      #cart ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      #cart li {
+        background-color: white;
+        padding: 0.6rem 1rem;
+      }
+
+      h4 {
+        margin: 0;
+        font-weight: 500;
+      }
+
+      .cart-item-gray {
+        color: #6c757d;
+      }
+
+      .cart-item-promo-green {
+        color: #198754;
+      }
+
+      .cart-item-top {
+        border: 1px solid #dfdfdf;
+        border-radius: 5px 5px 0 0;
+      }
+
+      .cart-item-bottom {
+        border: 1px solid #dfdfdf;
+        border-top: none;
+        border-radius: 0 0 5px 5px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .total-value {
+        font-weight: 700;
+      }
+
+      .cart-item-promo {
+        border: 1px solid #dfdfdf;
+        border-top: none;
+        background-color: #f8f9fa;
+        color: #198754;
+      }
+
+      .cart-item-mid {
+        border: 1px solid #dfdfdf;
+        border-top: none;
+      }
+
+      .cart-item-name-price {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      /* Promo code */
+      #promo-code {
+        display: flex;
+        align-items: center;
+        height: 30px;
+        border: 1px solid #dfdfdf;
+        border-radius: 5px;
+        background-color: white;
+        padding: 10px;
+        margin: 0;
+      }
+
+      #promo-code input[type="text"] {
+        padding: 7px 10px; /* 박스 크기 미세하게 조절 */
+        border-radius: 5px 0 0 5px;
+        border-right: none;
+      }
+
+      #promo-code input[type="submit"] {
+        padding: 7px 10px;
+        border: 1px solid #6c757d;
+        border-radius: 0 5px 5px 0;
+        background-color: #6c757d;
+        color: white;
+      }
+
+      /* footer */
+      #footer {
+        color: #6c757d;
+        margin: 50px 0px;
+        padding-top: 50px;
+        text-align: center;
+      }
+
+      #footer div{
+        margin: 7px;
+      }
+
+      #footer a {
+        margin: 4px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <img src="./img/bootstrap-logo-purple.svg" width="70" />
+      <h1>Checkout form</h1>
+      <p>
+        Below is an example form built entirely with Bootstrap’s form controls.
+        Each required form group has a validation state that can be triggered by
+        attempting to submit the form without completing it.
+      </p>
+    </div>
+
+    <form name="form1" action="billing.html" class="billingLabel">
+      <div id="billing">
+        <div><h2>Billing address</h2></div>
+
+        <div id="name" class="billing-space">
+          <div class="name-content">
+            <label>First name</label><br />
+            <input type="text" name="firstname" /><br />
+          </div>
+
+          <div class="name-content">
+            <label>Last Name</label><br />
+            <input type="text" name="lastname" /><br />
+          </div>
+        </div>
+
+        <div class="billing-space">
+          <label>Username</label>
+          <div class="username-content">
+            <button>@</button>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+            />
+          </div>
+        </div>
+
+        <div class="billing-space">
+          <label>Email <span class="optional">(Optional)</span></label>
+          <input type="text" name="email" placeholder="you@example.com" /><br />
+        </div>
+
+        <div class="billing-space">
+          <label>Address</label>
+          <input
+            type="text"
+            name="address1"
+            placeholder="1234 Main St"
+          /><br />
+        </div>
+
+        <div class="billing-space">
+          <label>Address 2 <span class="optional">(Optional)</span></label>
+          <input
+            type="text"
+            name="address2"
+            placeholder="Apartment or suite"
+          /><br />
+        </div>
+
+        <div id="csz-group" class="billing-space">
+          <div class="csz-group-content">
+            <label>Country</label><br />
+            <select class="csz-group-select" name="country">
+              <option value="1" selected>Choose...</option>
+              <option value="2">United States</option>
+            </select>
+            <br />
+          </div>
+
+          <div class="csz-group-content">
+            <label>State</label><br />
+            <select class="csz-group-select" name="state">
+              <option value="1" selected>Choose...</option>
+              <option value="2">California</option>
+            </select>
+            <br />
+          </div>
+
+          <div class="csz-group-content" id="zip">
+            <label>Zip</label>
+            <input type="text" name="zipcode" />
+            <br />
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- Check Box -->
+        <div id="check-box">
+          <div>
+            <input type="checkbox" name="sameaddress" />
+            <label for="sameaddress"
+              >Shipping address is the same as my billing address</label
+            >
+          </div>
+
+          <div>
+            <input type="checkbox" name="saveinfo" />
+            <label for="saveinfo">Save this information for next time</label>
+          </div>
+        </div>
+
+        <hr />
+
+        <!-- payment space -->
+        <h2>Payment</h2>
+        <div id="payment-group">
+          <div>
+            <input type="radio" name="payment" id="credit" value="C" checked />
+            <label>Credit card</label>
+          </div>
+          <div>
+            <input type="radio" name="payment" id="debit" value="D" />
+            <label>Debit card</label>
+          </div>
+          <div>
+            <input type="radio" name="payment" id="paypal" value="P" />
+            <label>PayPal</label>
+          </div>
+        </div>
+        <br />
+
+        <div id="card-info">
+          <div id="card-top" class="card-info-margin">
+            <div>
+              <label>Name on card</label>
+              <input
+                type="text"
+                name="cardname"
+                style="margin-bottom: 0 !important"
+              />
+              <small class="name-card-index"
+                >Full name as displayed on card</small
+              >
+            </div>
+
+            <div>
+              <label>Credit card number</label>
+              <input type="text" name="cardNumber"/><br />
+            </div>
+          </div>
+
+          <div id="card-bottom" class="card-info-margin">
+            <div>
+              <label>Expiration</label>
+              <input type="text" name="exp" /><br />
+            </div>
+            <div>
+              <label>CVV</label>
+              <input type="text" name="cvv" /><br />
+            </div>
+          </div>
+
+          <hr />
+          <!-- CHECKOUT button -->
+          <input type="submit" value="Continue to checkout" />
+        </div>
+      </div>
+
+      <!-- Your cart -->
+      <div id="cart">
+        <div id="cart-header">
+          <h2>Your cart</h2>
+          <h3 class="cart-item-num">3</h3>
+        </div>
+
+        <ul>
+          <li class="cart-item-top">
+            <div class="cart-item-name-price">
+              <h4>Product name</h4>
+              <span class="cart-item-gray">$12</span>
+            </div>
+            <small class="cart-item-gray">Brief description</small>
+          </li>
+          <li class="cart-item-mid">
+            <div class="cart-item-name-price">
+              <h4>Second product</h4>
+              <span class="cart-item-gray">$8</span>
+            </div>
+            <small class="cart-item-gray">Brief description</small>
+          </li>
+          <li class="cart-item-mid">
+            <div class="cart-item-name-price">
+              <h4>Third item</h4>
+              <span class="cart-item-gray">$5</span>
+            </div>
+            <small class="cart-item-gray">Brief description</small>
+          </li>
+          <li class="cart-item-promo">
+            <div class="cart-item-name-price">
+              <h4>Promo code</h4>
+              <span class="cart-item-promo-green">-$5</span>
+            </div>
+            <small class="cart-item-promo-green">EXAMPLECODE</small>
+          </li>
+          <li class="cart-item-bottom">
+            <div>Total (USD)</div>
+            <span class="total-value">$20</span>
+          </li>
+        </ul>
+
+        <div id="promo-code">
+          <input type="text" name="promocode" placeholder="Promo code" />
+          <input type="submit" value="Redeem" />
+        </div>
+      </div>
+    </form>
+
+    <div id="footer">
+      <div>© 2017–2022 Company Name</div>
+      <div>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Support</a>
+      </div>
+    </div>
+  </body>
+</html>
