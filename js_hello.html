@@ -20,10 +20,35 @@
     function changecolor(obj) {
       obj.style.color = "#ff00ff";
     }
+
+    // inner html
+    function changeData() {
+      document.getElementById("demo").innerHTML = "Hello world!";
+    }
+
+    // event listener
+    // 요소 선택하기
+    let myDiv = document.getElementById("myDiv");
+
+    // 텍스트 변경
+    myDiv.textContent = "NEW HELLO WORLD!";
+
+    // 클릭이벤트 추가
+    myDiv.addEventListener('click', function() {
+      alert('div clicked!');
+    });
+
+
   </script>
 </head>
 <body>
   <h1 onmousemove="changecolor(this)" onmouseout="this.style.color = '#f12300'">환영합니다</h1>
+  <p id="demo" onclick="changeData()">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id sit tempore voluptates nam dolore quasi suscipit nihil, odio sunt ipsam dolor ad nobis voluptatum facere amet modi doloremque deserunt repudiandae!
+  </p>
+  <p id="myDiv">
+    hello world;
+  </p>
   <button class="btn1" onclick="hello()">Click Me!</button>
 </body>
 </html>
